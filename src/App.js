@@ -1,13 +1,15 @@
+
 import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import { useKey } from "./useKey";
 import { useLocalStorageState } from "./useLocalStorageState";
 import { useMovies } from "./useMovies";
+require('dotenv').config();
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = "f608407f";
+const KEY = process.env.API_KEY;
 
 export default function App() {
   const [query, setQuery] = useState("");
